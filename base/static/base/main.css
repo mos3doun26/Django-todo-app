@@ -1,0 +1,197 @@
+:root {
+    --red: rgba(224, 78, 78, 0.4)
+}
+
+* {
+    margin: 0%;
+    padding:0%;
+}
+h1,h2,h3, p {
+    margin: 10px;
+}
+
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+.main-container {
+    width: 50%;
+    border: 1px solid #f2f2f2;
+    border-radius: 5px;
+    margin: auto;
+    background-color: #E7E9EB;
+    margin-top: 50px;
+    height: 430px;
+}
+
+.content-section {
+    padding-left: 20px;
+}
+
+.home-page{
+    text-align: center;
+}
+.navbar {
+    width: 100%;
+    background-color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #777;
+}
+
+.app-logo {
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar a:not(.app-logo){
+    color: #555;
+    /* color: #E7E9EB; */
+    transition: 0.4s;
+}
+
+.navbar a:hover {
+    color: white;
+}
+
+.left-group {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.right-group {
+    list-style-type: none;
+    float: right;
+    display: flex;
+    align-items: center;
+}
+
+
+.left-group li, .right-group li{
+    margin: 16px 8px;
+}
+
+.button {
+    border: 1px solid #777;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 5px;
+    color: #555;
+    transition: 0.4s;
+    padding: 8px;
+}
+
+.button:hover {
+    background-color: var(--red);
+    color: white;
+}
+
+input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #777; 
+}
+
+/* input:focus {
+    border: 1px solid var(--red);
+} */
+
+.info {
+    background-color: var(--red);
+    padding: 20px 0;
+}
+.search-add {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search-add input {
+    width: auto !important;
+}
+.tasks-div {
+    height: 140px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.tasks-div::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+.tasks {
+    padding: 20px;
+    padding-top: 0;
+}
+.task {
+    display: flex;
+    border-top: 1px solid #777;
+    padding: 10px 0;
+}
+.task a {
+    color: #555;
+    font-weight: 300;
+    font-size: large;
+    margin-right: 10px;
+    align-items: center;
+}
+
+a.delete-icon {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.card-body {
+    padding: 10px
+}
+
+form p {
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+}
+
+input[type="text"], input[type="password"] {
+    width: 90%;
+}
+
+textarea {
+    width: 90% !important;
+    padding: 10px !important;
+}
+
+input[type="submit"] {
+    margin-left: 10px;
+}
+
+#id_complete {
+    display: inline!important;
+}
+
+.task-complete-icon {
+    border: 1px solid #777;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    background-color: green;
+}
+
+.task-incomplete-icon {
+    border: 1px solid #777;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+}

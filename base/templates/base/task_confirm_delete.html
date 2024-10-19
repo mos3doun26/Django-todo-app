@@ -1,0 +1,31 @@
+{% extends "base/base.html"%}
+{% block content %}
+
+<style>
+    input[class="button"]{
+        font-size: 200;
+        font-weight: bold;
+        padding: 9px;
+        background-color: #E7E9EB;
+        height: 100%;
+    }
+    input[class="button"]:hover{
+        background-color: var(--red);
+    }
+</style>
+<div class="card-body">
+    <form method="post">
+        {% csrf_token %}
+        <h3>Are your sure what to delete "{{object.title}}"</h3>
+        <hr style="margin-bottom: 20px;">
+        {{form}}
+        <div style="align-items: center;">
+            <input class="button" type="submit" value="Submit">
+            <a style="height: 100%" class="button" href="{% url 'task-list' %}">Cancel</a>
+        </div>
+        
+    </form>
+</div>
+    
+
+{% endblock content %}

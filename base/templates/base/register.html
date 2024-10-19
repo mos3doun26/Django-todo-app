@@ -1,0 +1,29 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+    <h1>You are already have an account <a href="{% url 'task-list' %}">Go To Home</a></h1>
+{% else %}
+    <h2>Create a new account</h2>
+    <div class="card-body">
+      <form method="post">
+        {% csrf_token %}
+          <p>
+            <label>{{form.username.label}}</label>
+            {{form.username}}
+          </p>
+          <p>
+            <label>{{form.password1.label}}</label>
+            {{form.password1}}
+          </p>
+          <p>
+            <label>{{form.password2.label}}</label>
+            {{form.password2}}
+          </p>
+          <button class="button" style="margin-left: 10px;" type="submit">register now</button>
+      </form>
+      <p>Aready have an account: <a href="{% url 'login' %}">Login</a></p>
+    </div>
+    
+
+{% endif %}
+{% endblock content %}

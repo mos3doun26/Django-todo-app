@@ -1,0 +1,9 @@
+{% extends "base/base.html" %}
+{% block content %}
+    <div class="home-page" >
+        <h1 style="margin-top: 100px;">Welcome to our ToDo App</h1>
+        <h1>MO-ToDo</h1>
+        <h3 style="margin-top: 20px;"><a class="button" href="{% url 'task-list' %}">Go To Your Tasks</a></h3>
+    </div>
+    
+{% endblock content%}

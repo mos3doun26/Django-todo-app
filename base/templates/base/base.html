@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mo-todo</title>
+    <link rel="stylesheet" href="{% static 'base/main.css' %}">
+
+</head>
+<body>
+    <div class="main-container">
+        <nav class="navbar">
+            <ul class="left-group">
+                <li><a class="app-logo" href="{% url 'home' %}">MO-ToDo</a></li>
+                <li><a href="{% url 'task-list' %}">Tasks</a></li>
+            </ul>
+            <ul class="right-group">
+                {% if user.is_authenticated %}
+                    <li><a href="#">Profile</a></li>
+                    <li><a class="button" type="submit" href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>  
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+
+</body>
+</html>
