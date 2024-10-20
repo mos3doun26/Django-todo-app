@@ -17,7 +17,7 @@
             </ul>
             <ul class="right-group">
                 {% if user.is_authenticated %}
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
                     <li><a class="button" type="submit" href="{% url 'logout' %}">Logout</a></li>
                 {% else %}
                     <li><a href="{% url 'register' %}">Register</a></li>

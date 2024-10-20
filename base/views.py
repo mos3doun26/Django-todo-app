@@ -1,10 +1,11 @@
-from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
+from django.shortcuts import render, HttpResponse, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import CustomRegisterForm
 
 from django.contrib.auth import logout
 
@@ -18,9 +19,6 @@ class TaskList(LoginRequiredMixin,ListView):
     model = Task
     context_object_name = "tasks"
 
-    # def get_queryset(self):
-    #     return self.model.objects.filter(owner=self.request.user)
-    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["tasks"] = context["tasks"].filter(owner=self.request.user)
@@ -41,9 +39,6 @@ class TaskCreate(CreateView):
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
-class TaskDetail(DetailView):
-    model = Task
-    context_object_name = "task"
 
 class TaskDelete(DeleteView):
     model = Task
@@ -51,14 +46,14 @@ class TaskDelete(DeleteView):
 
 def Register(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = CustomRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get("username")
             messages.success(request, f'Your account has been created, Login in now"{username}"')
             return redirect("login")
     else:
-            form = UserCreationForm()
+            form = CustomRegisterForm()
     return render(request, "base/register.html", {"form": form})
 
 
@@ -83,10 +78,8 @@ def logout_view(request):
     logout(request)
     return redirect("login")
 
-
-class TaskUpdateComplete(UpdateView):
-    model = Task
-    fields = ["complete"]
-    template_name = "base/task_update_complete.html"
-    success_url = reverse_lazy("task-list")
-
+def profile(request):
+    context = {
+        "user": request.user
+    }
+    return render(request, "base/profile.html", context)

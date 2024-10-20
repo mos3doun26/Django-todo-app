@@ -1,5 +1,5 @@
 :root {
-    --red: rgba(224, 78, 78, 0.4)
+    --red: rgba(224, 78, 78, 0.4);
 }
 
 * {
@@ -163,7 +163,7 @@ label {
     display: block;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="email"] {
     width: 90%;
 }
 
@@ -178,20 +178,4 @@ input[type="submit"] {
 
 #id_complete {
     display: inline!important;
-}
-
-.task-complete-icon {
-    border: 1px solid #777;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
-    background-color: green;
-}
-
-.task-incomplete-icon {
-    border: 1px solid #777;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
-    background-color: white;
 }
